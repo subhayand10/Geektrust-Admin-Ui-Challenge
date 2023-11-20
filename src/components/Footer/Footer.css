@@ -1,0 +1,39 @@
+.Footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.DeleteBtn {
+  margin-left: 1%;
+  padding-left: 80px;
+  padding-top: 5px;
+}
+.DeleteBtn button {
+  background-color: red;
+  padding: 10px;
+  border: 0;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.Pagination {
+  margin: auto;
+  padding: 10px;
+}
+
+.Pagination a {
+  float: center;
+  padding: 8px 16px;
+  margin-left: 15px;
+  text-decoration: none;
+  background-color: blue;
+  border-radius: 20px;
+  color: white;
+}
+
+.Pagination a.active {
+  border: 1px solid red;
+  background-color: white;
+  color: blue;
+  border-radius: 20px;
+}

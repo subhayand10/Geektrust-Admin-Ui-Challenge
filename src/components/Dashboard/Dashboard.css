@@ -1,0 +1,38 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 4 columns */
+  /* Adjust the gap between grid items */
+  padding: 0px;
+}
+
+.grid-item {
+  /* Set background color or any other styles */
+  padding: 13px;
+  text-align: center; /* Text color */
+}
+
+.grid-item button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.transparent-textbox {
+  text-align: center;
+  border: none;
+  padding: 10px;
+  outline: none;
+  background: rgba(
+    255,
+    255,
+    255,
+    0
+  ); /* Adjust the alpha channel (0 to 1) for transparency */
+  /* Other styling properties as needed */
+}
+
+.checked-highlight {
+  background-color: rgb(91, 89, 89);
+  opacity: 0.7;
+  transition: background-color 0.5s;
+}
