@@ -41,25 +41,6 @@ function Dashboard({
     });
   };
 
-  // const handleAllSelect = () => {
-  //   setChecked((previousChecked) => {
-  //     if (previousChecked == false) {
-  //       setSelectedChecked((previousSelected) => {
-  //         for (let i = 0; i < paginatedData.length; i++) {
-  //           previousSelected.push(paginatedData[i]["id"]);
-  //         }
-  //         return previousSelected;
-  //       });
-  //     } else {
-  //       setSelectedChecked((previousSelected) => {
-  //         return previousSelected.splice(0, previousSelected.length);
-  //       });
-  //     }
-  //     console.log(selectedChecked);
-  //     return !previousChecked;
-  //   });
-  // };
-
   const handleAllSelect = () => {
     setChecked((previousChecked) => {
       if (!previousChecked) {
@@ -99,11 +80,6 @@ function Dashboard({
       setPaginatedData(usersResponse.data);
     });
   }, []);
-
-  // useEffect(() => {
-  //   console.log(paginatedData);
-  //   console.log(userData);
-  // }, [paginatedData, userData]);
 
   let gridJsx = (
     <div className="grid-container">
