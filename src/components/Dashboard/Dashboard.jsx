@@ -41,19 +41,34 @@ function Dashboard({
     });
   };
 
+  // const handleAllSelect = () => {
+  //   setChecked((previousChecked) => {
+  //     if (previousChecked == false) {
+  //       setSelectedChecked((previousSelected) => {
+  //         for (let i = 0; i < paginatedData.length; i++) {
+  //           previousSelected.push(paginatedData[i]["id"]);
+  //         }
+  //         return previousSelected;
+  //       });
+  //     } else {
+  //       setSelectedChecked((previousSelected) => {
+  //         return previousSelected.splice(0, previousSelected.length);
+  //       });
+  //     }
+  //     console.log(selectedChecked);
+  //     return !previousChecked;
+  //   });
+  // };
+
   const handleAllSelect = () => {
     setChecked((previousChecked) => {
-      if (previousChecked == false) {
-        setSelectedChecked((previousSelected) => {
-          for (let i = 0; i < paginatedData.length; i++) {
-            previousSelected.push(paginatedData[i]["id"]);
-          }
-          return previousSelected;
-        });
+      if (!previousChecked) {
+        setSelectedChecked((previousSelected) => [
+          ...previousSelected,
+          ...paginatedData.map((item) => item.id),
+        ]);
       } else {
-        setSelectedChecked((previousSelected) => {
-          return previousSelected.splice(0, previousSelected.length);
-        });
+        setSelectedChecked([]);
       }
       return !previousChecked;
     });
@@ -74,7 +89,9 @@ function Dashboard({
     });
   };
 
-  useEffect(() => {}, [selectedChecked]);
+  useEffect(() => {
+    console.log(selectedChecked);
+  }, [selectedChecked]);
 
   useEffect(() => {
     fetchUsers().then((usersResponse) => {
@@ -83,10 +100,10 @@ function Dashboard({
     });
   }, []);
 
-  useEffect(() => {
-    console.log(paginatedData);
-    console.log(userData);
-  }, [paginatedData, userData]);
+  // useEffect(() => {
+  //   console.log(paginatedData);
+  //   console.log(userData);
+  // }, [paginatedData, userData]);
 
   let gridJsx = (
     <div className="grid-container">
@@ -152,7 +169,7 @@ function Dashboard({
                   <input
                     className="transparent-textbox"
                     type="text"
-                    value={user.name}
+                    defaultValue={user.name}
                   />
                 )}
               </div>
@@ -179,7 +196,7 @@ function Dashboard({
                   <input
                     className="transparent-textbox"
                     type="text"
-                    value={user.email}
+                    defaultValue={user.email}
                   />
                 )}
               </div>
@@ -206,7 +223,7 @@ function Dashboard({
                   <input
                     className="transparent-textbox"
                     type="text"
-                    value={user.role}
+                    defaultValue={user.role}
                   />
                 )}
               </div>
